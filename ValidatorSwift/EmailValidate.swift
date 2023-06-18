@@ -49,3 +49,12 @@ class PasswordValidateWithName {
 
 
 
+class URLValidatorSwift {
+    static func validateURL(urlString: String) -> Bool {
+        // Regular expression pattern for URL validation
+        let urlRegex = #"^(https?|ftp)://[^\s/$.?#].[^\s]*$"#
+
+        let urlPredicate = NSPredicate(format: "SELF MATCHES %@", urlRegex)
+        return urlPredicate.evaluate(with: urlString)
+    }
+}
